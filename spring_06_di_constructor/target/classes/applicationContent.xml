@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl">
+        <property name = "connectionNum" value = "1"/>
+        <property name = "databaseName" value = "db1"/>
+    </bean>
+
+    <bean id = 'userDao' class = "com.itheima.dao.impl.UserDaoImpl" >
+<!--        方法1-->
+<!--        <constructor-arg value="name1"/>-->
+<!--        <constructor-arg ref="bookDao"/>-->
+<!--        <constructor-arg ref="bookDao"/>-->
+
+<!--        方法2-->
+<!--        <constructor-arg index="0" ref="bookDao"/>-->
+<!--        <constructor-arg index="1" value="name2"/>-->
+
+<!--        方法3-->
+<!--        <constructor-arg name="name" value="name1"/>-->
+<!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
+
+        <constructor-arg type="java.lang.String" value = "name1"/>
+        <constructor-arg type="com.itheima.dao.BookDao" ref = "bookDao"/>
+    </bean>
+
+    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" >
+        <property name="bookDao" ref = "bookDao"/>
+        <property name="userDao" ref = "userDao"/>
+    </bean>
+
+</beans>
