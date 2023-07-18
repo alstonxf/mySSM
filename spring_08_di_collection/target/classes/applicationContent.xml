@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = 'bookDao1' class = "com.itheima.dao.impl.BookDaoImpl" />
+
+
+    <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" >
+<!--        <property name="array" value="1,2,23,10001" />-->
+        <property name="array">
+            <array>
+                <value>11</value>
+                <value>12</value>
+                <value>13</value>
+                <ref bean="bookDao1"/>
+            </array>
+        </property>
+
+<!--        <property name="set" value="1,2,23,10001" />-->
+        <property name="set">
+            <set>
+                <value>11</value>
+                <value>11</value>
+                <value>12</value>
+            </set>
+        </property>
+
+        <property name="map" >
+            <map>
+                <description>this is a map</description>
+                <entry key="key1" value="value1"/>
+                <entry key="key2" value="value2"/>
+                <entry key-ref="bookDao1" value-ref="bookDao1"/>
+                <entry key="key3" value-ref="bookDao1"/>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="country">china</prop>
+                <prop key="province">shanghai</prop>
+                <prop key="code">001</prop>
+                <prop key="code1">bookDao1</prop>
+            </props>
+        </property>
+    </bean>
+
+
+<!--    propertyr 改用自动装配-->
+    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" autowire="byName">
+        <property name="bookServiceName" value="111" />
+<!--        <property name="bookDao" ref = "bookDao"/>-->
+    </bean>
+
+</beans>

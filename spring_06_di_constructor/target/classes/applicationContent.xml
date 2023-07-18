@@ -22,11 +22,12 @@
 <!--        <constructor-arg name="name" value="name1"/>-->
 <!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
 
+<!--        方法4-->
         <constructor-arg type="java.lang.String" value = "name1"/>
         <constructor-arg type="com.itheima.dao.BookDao" ref = "bookDao"/>
     </bean>
 
-    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" >
+    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl">
         <property name="bookDao" ref = "bookDao"/>
         <property name="userDao" ref = "userDao"/>
     </bean>
