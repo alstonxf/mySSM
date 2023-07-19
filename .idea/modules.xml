@@ -11,6 +11,11 @@
       <module fileurl="file://$PROJECT_DIR$/spring_07_di_autoware/spring_07_di_autoware.iml" filepath="$PROJECT_DIR$/spring_07_di_autoware/spring_07_di_autoware.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_08_di_collection/spring_08_di_collection.iml" filepath="$PROJECT_DIR$/spring_08_di_collection/spring_08_di_collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_09_datasource/spring_09_datasource.iml" filepath="$PROJECT_DIR$/spring_09_datasource/spring_09_datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_10_container/spring_10_container.iml" filepath="$PROJECT_DIR$/spring_10_container/spring_10_container.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_11_annotation_bean/spring_11_annotation_bean.iml" filepath="$PROJECT_DIR$/spring_11_annotation_bean/spring_11_annotation_bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_12_annotation_bean_manager/spring_12_annotation_bean_manager.iml" filepath="$PROJECT_DIR$/spring_12_annotation_bean_manager/spring_12_annotation_bean_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_13_annotation_di/spring_13_annotation_di.iml" filepath="$PROJECT_DIR$/spring_13_annotation_di/spring_13_annotation_di.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_14_annotation_third_bean_manager/spring_14_annotation_third_bean_manager.iml" filepath="$PROJECT_DIR$/spring_14_annotation_third_bean_manager/spring_14_annotation_third_bean_manager.iml" />
     </modules>
   </component>
 </project>

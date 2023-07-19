@@ -41,6 +41,7 @@
                 <prop key="country">china</prop>
                 <prop key="province">shanghai</prop>
                 <prop key="code">001</prop>
+<!--                相当于一个key是string和value是object的map-->
                 <prop key="code1">bookDao1</prop>
             </props>
         </property>
