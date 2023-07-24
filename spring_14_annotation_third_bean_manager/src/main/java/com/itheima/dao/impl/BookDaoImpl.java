@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository("bookDao")
+@Repository("bookDaoImpl")
 public class BookDaoImpl implements BookDao {
 
 

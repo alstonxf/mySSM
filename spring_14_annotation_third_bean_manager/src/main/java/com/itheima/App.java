@@ -1,7 +1,7 @@
 package com.itheima;
 
 import com.alibaba.druid.pool.DruidPooledConnection;
-import com.itheima.config.DataSource;
+import com.itheima.config.DataSourceConfig;
 import com.itheima.config.SpringConfig;
 import com.itheima.dao.impl.BookDaoImpl;
 import com.itheima.service.impl.BookServiceImpl;
@@ -23,13 +23,13 @@ public class App {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         // 获取 BookDaoImpl 对象
-        BookDaoImpl bookDaoImpl = (BookDaoImpl) context.getBean("bookDao");
+        BookDaoImpl bookDaoImpl = (BookDaoImpl) context.getBean("bookDaoImpl");
 
         // 创建用于存储 BookDaoImpl 对象的列表
         ArrayList<BookDaoImpl> bookDaoArrayList = new ArrayList<BookDaoImpl>();
 
         // 获取数据源对象
-        DataSource dataSource = (DataSource)context.getBean("dataSource");
+        DataSourceConfig dataSource = (DataSourceConfig)context.getBean("dataSource");
         DruidDataSource druidDataSource = dataSource.getDruidDataSource();
 
         // 获取数据库连接
