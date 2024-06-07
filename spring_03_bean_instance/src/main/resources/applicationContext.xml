@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--方式一：构造方法实例化bean-->
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"/>
+
+
+    <!--方式二：使用静态工厂实例化bean 注意：实际上返回的是OrderDaoFactory执行getOrderDao后得到的OrderDaoImpl-->
+    <bean id="orderDao" class="com.itheima.factory.OrderDaoFactory" factory-method="getOrderDao"/>
+
+    <!--方式三：使用实例工厂实例化bean 先创建工厂，再创建实例-->
+    <bean id="userFactory001" class="com.itheima.factory.UserDaoFactory"/>
+    <bean id="userDao"  class="com.itheima.factory.UserDaoFactory" factory-method="getUserDao" factory-bean="userFactory001"/>
+
+    <!--方式四：使用FactoryBean实例化bean-->
+    <bean id="userDao" class="com.itheima.factory.UserDaoFactoryBean"/>
+
+</beans>

@@ -5,7 +5,9 @@
 
     <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" />
 
+<!--    控制反转，在ioc容器中新增管理对象-->
     <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" >
+    <!--    DI注入：创建对象间关联关系      -->
         <property name="bookDao" ref = "bookDao"/>
     </bean>
 

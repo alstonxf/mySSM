@@ -9,16 +9,18 @@
 
     <!--       1、设置开启context命名空间 然后配置读取properties，这样避免在xml里面直接写数据源连接信息。-->
 <!--    <context:property-placeholder location="classpath*:myjdbc.properties" system-properties-mode="NEVER"/>-->
-<!--    用*代表匹配所有-->
+
+    <!--* 方式一:可以实现，如果配置文件多的话，每个都需要配置 -->
+<!--    <context:property-placeholder location="jdbc.properties,jdbc2.properties" system-properties-mode="NEVER"/>-->
+    <!--* 方式二:`*.properties`代表所有以properties结尾的文件都会被加载，可以解决方式一的问题，但是不标准-->
+<!--    <context:property-placeholder location="*.properties" system-properties-mode="NEVER"/>-->
+    <!-- * 方式三:标准的写法，`classpath:`代表的是从根路径下开始查找，但是只能查询当前项目的根路径 -->
+<!--    <context:property-placeholder location="classpath:*.properties" system-properties-mode="NEVER"/>-->
+    <!--* 方式四:不仅可以加载当前项目还可以加载当前项目所依赖的所有项目的根路径下的properties配置文件--><!--    用*代表匹配所有-->
     <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
 
 <!--    2、新增datasource-->
     <bean id = 'dataSource' class="com.alibaba.druid.pool.DruidDataSource">
-<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-<!--        <property name="url" value="jdbc:mysql://localhost:3306/mysql?useSSL=false"/>-->
-<!--        <property name="username" value="root"/>-->
-<!--        <property name="password" value="12345678"/>-->
-
             <property name="driverClassName" value="${driverClassName}"/>
             <property name="url" value="${url}"/>
             <property name="username" value="${username}"/>
@@ -28,7 +30,7 @@
         <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" />
 
         <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" autowire="byName">
-            <property name="bookServiceName" value="111" />
+<!--            <property name="bookServiceName" value="111" />-->
         </bean>
 
     </beans>

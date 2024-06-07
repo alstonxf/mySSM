@@ -5,9 +5,11 @@
 
     <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" />
 
-    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" >
+    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" scope="prototype">
         <property name="bookDao" ref = "bookDao"/>
     </bean>
 
-
+    <bean id ="bookService2" class="com.itheima.service.impl.BookServiceImpl" scope="prototype">
+        <property name="bookDao" ref = "bookDao"/>
+    </bean>
 </beans>

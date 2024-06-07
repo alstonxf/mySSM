@@ -26,6 +26,7 @@ public class App {
 
         // 获取数据源对象
         DruidDataSource dataSource = (DruidDataSource) context.getBean("dataSource");
+        System.out.println(dataSource);
         // 如果不使用 Spring 管理数据源，可以手动创建并配置数据源
         // DruidDataSource dataSource = new DruidDataSource();
         // dataSource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -38,6 +39,12 @@ public class App {
         Statement statement = connection.createStatement();
 
         // 执行 SQL 查询
+        statement.execute("CREATE DATABASE IF NOT EXISTS ssm_db");
+        statement.execute("CREATE TABLE IF NOT EXISTS ssm_db.tbl_book (  id INT AUTO_INCREMENT PRIMARY KEY,  name VARCHAR(255) NOT NULL,  type VARCHAR(50) NOT NULL,description TEXT)");
+        statement.execute("REPLACE INTO ssm_db.tbl_book (name, type, description) VALUES  \n" +
+                "('Book 1', 'Fiction', 'A great fiction book.'),  \n" +
+                "('Book 2', 'Non-Fiction', 'A book about history.'),  \n" +
+                "('Book 3', 'Science', 'A book on physics.');");
         ResultSet resultSet = statement.executeQuery("SELECT * FROM ssm_db.tbl_book;");
 
         // 遍历查询结果
@@ -56,9 +63,11 @@ public class App {
         System.out.println(Arrays.asList(bookDaoArrayList));
 
         // 获取 BookServiceImpl 对象
+        System.out.println("获取 BookServiceImpl 对象");
         BookServiceImpl bookService = (BookServiceImpl) context.getBean("bookService");
 
         // 调用保存方法
+        System.out.println("调用保存方法");
         bookService.save();
     }
 }

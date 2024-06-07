@@ -5,9 +5,11 @@
 
     <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" />
 
-    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" >
+    <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" scope="prototype">
         <property name="bookDao" ref = "bookDao"/>
     </bean>
-
-
+<!--    //        所以xml里面如果配了两个bookService对象就会报错。会导致beanFactory.getBean方法报错 No qualifying bean of type 'com.itheima.service.BookService' available: expected single matching bean but found 2: bookService,bookService2-->
+<!--    <bean id ="bookService2" class="com.itheima.service.impl.BookServiceImpl" scope="prototype">-->
+<!--        <property name="bookDao" ref = "bookDao"/>-->
+<!--    </bean>-->
 </beans>
