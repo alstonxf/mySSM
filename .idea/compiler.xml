@@ -34,6 +34,7 @@
         <module name="spring_02_base_config" />
         <module name="spring_19_aop_pointcut" />
         <module name="spring_21_case_interface_run_speed" />
+        <module name="myMyBatis" />
         <module name="spring_03_bean_instance" />
         <module name="spring_04_bean_lifecycle" />
       </profile>

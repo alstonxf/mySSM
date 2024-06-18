@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--本文件非必须，也可以删除本文件，改为直接在映射文件写sql-->
+<!--第一种方法，使用映射的mapper文件写sql-->
+<!--第二种方法，把映射的mapper文件删除，直接在接口上用注解写sql-->
+<mapper namespace="dao.IUserMapper">
+    <!--配置查询所有-->
+    <select id="findAllXml" resultType="domain.User">
+        select * from user;
+    </select>
+
+    <select id="findByIdXml" parameterType="int" resultType="domain.User">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <insert id="insertXml" parameterType="domain.User">
+        INSERT INTO user(username, sex, birthday, address)
+        VALUES (#{username}, #{sex}, #{birthday}, #{address})
+    </insert>
+
+    <delete id="deleteByIdXml" parameterType="int">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <update id="updateXml" parameterType="domain.User">
+        update user set username = #{username} , address = #{address};
+    </update>
+
+</mapper>
