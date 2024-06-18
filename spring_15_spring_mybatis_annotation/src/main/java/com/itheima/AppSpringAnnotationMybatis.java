@@ -3,7 +3,7 @@ package com.itheima;
 import com.itheima.config.SpringConfig;
 import com.itheima.dao.impl.BookDaoImpl;
 import com.itheima.domain.Book;
-import com.itheima.dao.service.impl.BookServiceImpl;
+import com.itheima.service.impl.BookServiceImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;

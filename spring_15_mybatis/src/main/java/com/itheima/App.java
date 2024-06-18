@@ -1,6 +1,9 @@
 package com.itheima;
 
+import com.itheima.dao.Account;
 import com.itheima.dao.AccountDao;
+import com.itheima.service.AccountService;
+import com.itheima.service.AccountServiceImpl;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class App {
+    //MyBatis会自动将Mapper接口与映射文件关联起来，并且执行相应的数据库操作。
     public static void main(String[] args) throws IOException {
         // 1. 创建SqlSessionFactoryBuilder对象
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();

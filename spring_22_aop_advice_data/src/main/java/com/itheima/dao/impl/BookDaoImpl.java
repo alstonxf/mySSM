@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 public class BookDaoImpl implements BookDao {
 
     public String findName(int id,String password) {
-        System.out.println("id:"+id);
-        if(true)throw new NullPointerException();
+        System.out.println("执行目标方法（findName方法）打印id:"+id);
         return "itcast";
     }
 }

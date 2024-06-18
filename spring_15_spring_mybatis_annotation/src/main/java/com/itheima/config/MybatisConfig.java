@@ -19,7 +19,7 @@ public class MybatisConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("com.itheima.dao");
+        mapperScannerConfigurer.setBasePackage("com.itheima");
         return mapperScannerConfigurer;
     }
 }

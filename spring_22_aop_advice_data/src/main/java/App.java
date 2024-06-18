@@ -8,6 +8,6 @@ public class App {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BookDao bookDao = ctx.getBean(BookDao.class);
         String name = bookDao.findName(100,"itheima");
-        System.out.println(name);
+        System.out.println("运行结束，获取到了around方法返回的name："+name);
     }
 }

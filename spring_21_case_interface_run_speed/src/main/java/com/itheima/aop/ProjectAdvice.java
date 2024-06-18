@@ -2,9 +2,7 @@ package com.itheima.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,11 +21,24 @@ public class ProjectAdvice {
         String methodName = signature.getName();
 
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
            pjp.proceed();
         }
         long end = System.currentTimeMillis();
-        System.out.println("万次执行："+ className+"."+methodName+"---->" +(end-start) + "ms");
+        System.out.println("百次执行："+ className+"."+methodName+"---->" +(end-start) + "ms");
+    }
+    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
+    private void serviceBefore(){}
+
+    @Before("ProjectAdvice.serviceBefore()")
+    public void startMessage(){
+        System.out.println("执行前打印");
+    }
+    @Pointcut("execution(* com.itheima.service.*Service.*(..))")
+    private void serviceAfterReturn(){}
+    @AfterReturning("ProjectAdvice.serviceAfterReturn()")
+    public void endMessage(){
+        System.out.println("return后打印");
     }
 
 }

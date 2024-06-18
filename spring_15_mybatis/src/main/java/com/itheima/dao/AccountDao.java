@@ -1,6 +1,5 @@
 package com.itheima.dao;
 
-import com.itheima.Account;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;

@@ -28,6 +28,6 @@ public class MyAdvice {
 
     @Before("pt2()")
     public void method(){
-        System.out.println(System.currentTimeMillis());
+        System.out.println("update时间："+System.currentTimeMillis());
     }
 }

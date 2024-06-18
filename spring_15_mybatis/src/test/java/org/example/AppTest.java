@@ -3,13 +3,12 @@ package org.example;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.apache.ibatis.io.ResolverUtil;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
+public class AppTest extends TestCase {
     /**
      * Create the test case
      *
@@ -23,9 +22,9 @@ public class AppTest
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
+    public static ResolverUtil.Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return (ResolverUtil.Test) new TestSuite( AppTest.class );
     }
 
     /**

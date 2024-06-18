@@ -22,7 +22,8 @@
     </environments>
 
     <mappers>
-        <package name="com.itheima.dao"/>
+<!--        <package name="com.itheima.dao"/>-->
+        <mapper resource="com/itheima/dao/BookDao.xml"/>
     </mappers>
 
 </configuration>

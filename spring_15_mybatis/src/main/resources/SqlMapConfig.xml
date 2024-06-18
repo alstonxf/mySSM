@@ -24,5 +24,6 @@
     <!--映射文件扫描包路径-->
     <mappers>
         <package name="com.itheima.dao"></package>
+        <package name="com.itheima.service"></package>
     </mappers>
 </configuration>

@@ -20,6 +20,5 @@ public class AppMybatis {
         BookDao mapper = sqlSession.getMapper(BookDao.class);
         Book b1 = mapper.save();
         System.out.println(b1);
-//        mapper.query();
     }
 }

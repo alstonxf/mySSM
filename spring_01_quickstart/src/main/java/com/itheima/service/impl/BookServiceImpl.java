@@ -9,7 +9,6 @@ public class BookServiceImpl implements BookService {
     public BookDao bookDao;
     @Override
     public void save() {
-        System.out.println("BookServiceImpl save ...");
         bookDao.save();
     }
 
