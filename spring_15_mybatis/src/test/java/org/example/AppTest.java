@@ -1,6 +1,5 @@
 package org.example;
 
-import org.testng.annotations.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.apache.ibatis.io.ResolverUtil;

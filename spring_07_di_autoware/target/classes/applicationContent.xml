@@ -5,7 +5,7 @@
 
     <bean id = 'bookDao' class = "com.itheima.dao.impl.BookDaoImpl" />
 
-<!--    propertyr 改用自动装配-->
+<!--    propertyr 改用自动装配 byName就是找对应的id,通常建议避免使用；byType是找对应的类型，必须保障容器中相同类型的bean唯一，建议使用-->
     <bean id ="bookService" class="com.itheima.service.impl.BookServiceImpl" autowire="byName">
 <!--        <property name="bookDao" ref = "bookDao"/>-->
     </bean>
