@@ -33,7 +33,7 @@ public class UserController {
         return "{'module':'common param different name'}";
     }
 
-    //POJO参数：请求参数与形参对象中的属性对应即可完成参数传递
+    //POJO参数：请求参数与形参对象中的属性对应即可完成参数传递,不一定user每个属性都要填。
     @RequestMapping("/pojoParam")
     @ResponseBody
     public String pojoParam(User user){
@@ -98,7 +98,7 @@ public class UserController {
 
     //日期参数
     //使用@DateTimeFormat注解设置日期类型数据格式，默认格式yyyy/MM/dd
-    @RequestMapping("/dataParam")
+    @RequestMapping("/dateParam")
     @ResponseBody
     public String dataParam(Date date,
                             @DateTimeFormat(pattern="yyyy-MM-dd") Date date1,
