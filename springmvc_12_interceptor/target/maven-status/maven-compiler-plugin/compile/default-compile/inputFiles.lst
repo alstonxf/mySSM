@@ -1,5 +1,7 @@
-D:\workspace\springmvc\springmvc_12_interceptor\src\main\java\com\itheima\controller\BookController.java
-D:\workspace\springmvc\springmvc_12_interceptor\src\main\java\com\itheima\domain\Book.java
-D:\workspace\springmvc\springmvc_12_interceptor\src\main\java\com\itheima\config\SpringMvcConfig.java
-D:\workspace\springmvc\springmvc_12_interceptor\src\main\java\com\itheima\config\ServletContainersInitConfig.java
-D:\workspace\springmvc\springmvc_12_interceptor\src\main\java\com\itheima\interceptor\ProjectInterceptor.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\config\SpringMvcSupport.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\controller\BookController.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\controller\interceptor\ProjectInterceptor.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\config\ServletContainersInitConfig.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\config\SpringMvcConfig.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\controller\interceptor\ProjectInterceptor2.java
+D:\myGitProject\mySMM1\mySSM\springmvc_12_interceptor\src\main\java\com\itheima\domain\Book.java

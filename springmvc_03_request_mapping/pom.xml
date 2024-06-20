@@ -34,6 +34,20 @@
           <path>/</path>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <!--          <webResources>-->
+          <!--            <resource>-->
+          <!--              <directory>src/main/resources/static</directory>-->
+          <!--              <targetPath>WEB-INF/classes</targetPath>-->
+          <!--              <filtering>true</filtering>-->
+          <!--            </resource>-->
+          <!--          </webResources>-->
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
