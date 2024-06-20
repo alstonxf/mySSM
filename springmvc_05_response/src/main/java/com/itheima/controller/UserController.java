@@ -49,11 +49,11 @@ public class UserController {
     public List<User> toJsonList(){
         System.out.println("返回json集合数据");
         User user1 = new User();
-        user1.setName("传智播客");
+        user1.setName("播客");
         user1.setAge(15);
 
         User user2 = new User();
-        user2.setName("黑马程序员");
+        user2.setName("程序员");
         user2.setAge(12);
 
         List<User> userList = new ArrayList<User>();
