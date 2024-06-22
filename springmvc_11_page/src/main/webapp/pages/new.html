@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 页面meta信息 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SpringMVC案例</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../plugins/elementui/index.css">
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="hold-transition">
+<!-- 页面内容在这里 -->
+<div id="app">
+    <div class="content-header">
+        <h1>图书管理</h1>
+    </div>
+    <div class="app-container">
+        <div class="box">
+            <!-- 过滤条件和操作按钮 -->
+            <div class="filter-container">
+                <!-- 输入框，用于输入图书名称进行过滤 -->
+                <el-input placeholder="请输入要查询的图书名称" v-model="pagination.queryString" @input="handleInputChange" style="width: 300px;" class="filter-item"></el-input>
+                <div class="button-group">
+                    <!-- 查询按钮，点击后触发findByName方法，获取图书信息 -->
+                    <el-button @click="findByName()" class="dalfBut">查询</el-button>
+                    <!-- 新建按钮，点击后弹出新增图书窗口 -->
+                    <el-button type="primary" class="butT" @click="handleCreate()">新建</el-button>
+                </div>
+            </div>
+            <!-- 图书列表 -->
+            <el-table size="small" current-row-key="id" :data="dataList1" stripe highlight-current-row>
+                <!-- 序号列 -->
+                <el-table-column type="index" align="center" label="序号"></el-table-column>
+                <!-- 图书类别列 -->
+                <el-table-column prop="type" label="图书类别" align="center"></el-table-column>
+                <!-- 图书名称列 -->
+                <el-table-column prop="name" label="图书名称" align="center"></el-table-column>
+                <!-- 描述列 -->
+                <el-table-column prop="description" label="描述" align="center"></el-table-column>
+                <!-- 操作列，包含编辑和删除按钮 -->
+                <el-table-column label="操作" align="center">
+                    <template slot-scope="scope">
+                        <!-- 编辑按钮，点击后弹出编辑窗口 -->
+                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
+                        <!-- 删除按钮，点击后进行删除操作 -->
+                        <el-button type="danger" size="mini" @click="handleDelete(scope.row)">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+
+            <!-- 新增图书弹窗 -->
+            <div class="add-form">
+                <el-dialog title="新增图书" :visible.sync="dialogFormVisible">
+                    <el-form ref="dataAddForm" :model="formData" :rules="rules" label-position="right" label-width="100px">
+                        <el-row>
+                            <el-col :span="12">
+                                <!-- 图书类别输入框 -->
+                                <el-form-item label="图书类别" prop="type">
+                                    <el-input v-model="formData.type"/>
+                                </el-form-item>
+                            </el-col>
+                            <el-col :span="12">
+                                <!-- 图书名称输入框 -->
+                                <el-form-item label="图书名称" prop="name">
+                                    <el-input v-model="formData.name"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col :span="24">
+                                <!-- 描述输入框 -->
+                                <el-form-item label="描述">
+                                    <el-input v-model="formData.description" type="textarea"></el-input>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                    </el-form>
+                    <div slot="footer" class="dialog-footer">
+                        <!-- 取消按钮，关闭弹窗 -->
+                        <el-button @click="dialogFormVisible = false">取消</el-button>
+                        <!-- 确定按钮，提交新增数据 -->
+                        <el-button type="primary" @click="handleAdd()">确定</el-button>
+                    </div>
+                </el-dialog>
+            </div>
+
+            <!-- 编辑图书弹窗 -->
+            <div class="add-form">
+                <el-dialog title="编辑图书" :visible.sync="dialogFormVisible4Edit">
+                    <el-form ref="dataEditForm" :model="formData" :rules="rules" label-position="right" label-width="100px">
+                        <el-row>
+                            <el-col :span="12">
+                                <!-- 图书类别输入框 -->
+                                <el-form-item label="图书类别" prop="type">
+                                    <el-input v-model="formData.type"/>
+                                </el-form-item>
+                            </el-col>
+                            <el-col :span="12">
+                                <!-- 图书名称输入框 -->
+                                <el-form-item label="图书名称" prop="name">
+                                    <el-input v-model="formData.name"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col :span="24">
+                                <!-- 描述输入框 -->
+                                <el-form-item label="描述">
+                                    <el-input v-model="formData.description" type="textarea"></el-input>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                    </el-form>
+                    <div slot="footer" class="dialog-footer">
+                        <!-- 取消按钮，关闭弹窗 -->
+                        <el-button @click="dialogFormVisible4Edit = false">取消</el-button>
+                        <!-- 确定按钮，提交编辑数据 -->
+                        <el-button type="primary" @click="handleEdit()">确定</el-button>
+                    </div>
+                </el-dialog>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 引入组件库 -->
+<script src="../js/vue.js"></script>
+<script src="../plugins/elementui/index.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../js/axios-0.18.0.js"></script>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            pagination: {}, // 过滤条件
+            dataList1: [], // 当前页要展示的列表数据
+            formData: {}, // 表单数据
+            dialogFormVisible: false, // 控制新增表单是否可见
+            dialogFormVisible4Edit: false, // 控制编辑表单是否可见
+            rules: { // 表单校验规则
+                type: [{ required: true, message: '图书类别为必填项', trigger: 'blur' }],
+                name: [{ required: true, message: '图书名称为必填项', trigger: 'blur' }]
+            }
+        },
+        // 钩子函数，VUE对象初始化完成后自动执行
+        created() {
+            console.log("Vue实例已创建");
+            this.findAll();
+        },
+
+        methods: {
+            handleInputChange(event) {
+                console.log("输入框内容变化：", event);
+                console.log("当前图书名称：", this.pagination.queryString);
+            },
+            // 根据名称查询图书信息
+            findByName() {
+                // 发送ajax请求根据名称获取图书信息
+                console.log("调用findByName方法");
+                axios.get("/springmvc_11_page_war/books/byName/" + this.pagination.queryString).then((res) => {
+                    console.log("findByName响应数据：", res.data);
+                    this.dataList1 = res.data.data; // 直接赋值给dataList1，而不是[data]
+                    console.log("debug===>" + res.data.data);
+                }).catch((error) => {
+                    console.error("根据名称查询图书出错：", error);
+                });
+            },
+
+            // 获取所有图书信息
+            findAll() {
+                console.log("调用findAll方法");
+                // 发送ajax请求获取图书列表
+                axios.get("/springmvc_11_page_war/books").then((res) => {
+                    console.log("findAll响应数据：", res.data);
+                    this.dataList1 = res.data.data;
+                }).catch((error) => {
+                    console.error("获取图书列表出错：", error);
+                });
+            },
+
+            // 弹出添加窗口
+            handleCreate() {
+                console.log("调用handleCreate方法，弹出添加窗口");
+                this.dialogFormVisible = true;
+                this.resetForm();
+            },
+            // 重置表单
+            resetForm() {
+                console.log("调用resetForm方法，重置表单");
+                this.formData = {};
+            },
+            // 添加图书信息
+            handleAdd() {
+                console.log("调用handleAdd方法，表单数据：", this.formData);
+                // 发送ajax请求保存图书信息
+                axios.post("/springmvc_11_page_war/books", this.formData).then((res) => {
+                    console.log("handleAdd响应数据：", res.data);
+                    // 如果操作成功，关闭弹层，并刷新数据
+                    if (res.data.code == 20011) {
+                        this.dialogFormVisible = false;
+                        this.$message.success("添加成功");
+                    } else if (res.data.code == 20010) {
+                        this.$message.error("添加失败");
+                    } else {
+                        this.$message.error(res.data.msg);
+                    }
+                }).finally(() => {
+                    this.findAll();
+                }).catch((error) => {
+                    console.error("添加图书出错：", error);
+                });
+            },
+            // 弹出编辑窗口
+            handleUpdate(row) {
+                console.log("调用handleUpdate方法，行数据：", row);
+                // 查询数据，根据id查询
+                axios.get("/springmvc_11_page_war/books/" + row.id).then((res) => {
+                    console.log("handleUpdate响应数据：", res.data);
+                    if (res.data.code == 20041) {
+                        // 展示弹层，加载数据
+                        this.formData = res.data.data;
+                        this.dialogFormVisible4Edit = true;
+                    } else {
+                        this.$message.error(res.data.msg);
+                    }
+                }).catch((error) => {
+                    console.error("编辑图书出错：", error);
+                });
+            },
+            // 编辑图书信息
+            handleEdit() {
+                console.log("调用handleEdit方法，表单数据：", this.formData);
+                // 发送ajax请求更新图书信息
+                axios.put("/springmvc_11_page_war/books", this.formData).then((res) => {
+                    console.log("handleEdit响应数据：", res.data);
+                    // 如果操作成功，关闭弹层，并刷新数据
+                    if (res.data.code == 20031) {
+                        this.dialogFormVisible4Edit = false;
+                        this.$message.success("修改成功");
+                    } else if (res.data.code == 20030) {
+                        this.$message.error("修改失败");
+                    } else {
+                        this.$message.error(res.data.msg);
+                    }
+                }).finally(() => {
+                    this.findAll();
+                }).catch((error) => {
+                    console.error("更新图书出错：", error);
+                });
+            },
+            // 删除图书信息
+            handleDelete(row) {
+                console.log("调用handleDelete方法，行数据：", row);
+                // 弹出提示框
+                this.$confirm("此操作永久删除当前数据，是否继续？", "提示", {
+                    type: 'info'
+                }).then(() => {
+                    // 做删除业务
+                    axios.delete("/springmvc_11_page_war/books/" + row.id).then((res) => {
+                        console.log("handleDelete响应数据：", res.data);
+                        if (res.data.code == 20021) {
+                            this.$message.success("删除成功");
+                        } else {
+                            this.$message.error("删除失败");
+                        }
+                    }).finally(() => {
+                        this.findAll();
+                    }).catch((error) => {
+                        console.error("删除图书出错：", error);
+                    });
+                }).catch(() => {
+                    // 取消删除操作
+                    this.$message.info("取消删除操作");
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

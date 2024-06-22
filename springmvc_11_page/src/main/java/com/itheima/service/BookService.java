@@ -37,6 +37,13 @@ public interface BookService {
     public Book getById(Integer id);
 
     /**
+     * 按name模糊查询
+     * @param name
+     * @return
+     */
+    public List<Book> getByName(String name);
+
+    /**
      * 查询全部
      * @return
      */

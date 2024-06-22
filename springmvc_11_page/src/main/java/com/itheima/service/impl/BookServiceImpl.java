@@ -4,7 +4,6 @@ import com.itheima.controller.Code;
 import com.itheima.dao.BookDao;
 import com.itheima.domain.Book;
 import com.itheima.exception.BusinessException;
-import com.itheima.exception.SystemException;
 import com.itheima.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,15 @@ public class BookServiceImpl implements BookService {
         return bookDao.getById(id);
     }
 
+    public List<Book> getByName(String name) {
+        System.out.println("getByName执行查询 "+name);
+        return bookDao.getByName(name);
+    }
+
     public List<Book> getAll() {
         return bookDao.getAll();
     }
+
+
+
 }

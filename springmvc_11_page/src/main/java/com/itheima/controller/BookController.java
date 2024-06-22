@@ -40,6 +40,14 @@ public class BookController {
         return new Result(code,book,msg);
     }
 
+    @GetMapping("byName/{name}")
+    public Result getByName(@PathVariable String name) {
+        List<Book> book = bookService.getByName(name);
+        Integer code = book != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = book != null ? "" : "数据查询失败，请重试！";
+        return new Result(code,book,msg);
+    }
+
     @GetMapping
     public Result getAll() {
         List<Book> bookList = bookService.getAll();
