@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/元数据准备/mybatisdb.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/元数据准备/spring_db.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/元数据准备/ssm_db.sql" dialect="MySQL" />
   </component>
 </project>

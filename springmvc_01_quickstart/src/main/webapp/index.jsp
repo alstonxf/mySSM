@@ -1,5 +1,5 @@
 <html>
 <body>
-    <h2>Hello World! springmvc_01</h2>
+    <h2>springmvc_11_page_war</h2>
 </body>
 </html>
