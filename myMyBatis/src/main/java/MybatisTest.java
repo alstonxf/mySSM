@@ -16,7 +16,7 @@ public class MybatisTest {
      */
     public static void main(String[] args) throws Exception {
         //1.读取配置文件
-        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
+        InputStream in = Resources.getResourceAsStream("mybatisConfig1.xml");
 
         //2.创建SqlSessionFactory工厂
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);

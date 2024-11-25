@@ -14,6 +14,7 @@
         <module name="spring_13_annotation_di" />
         <module name="spring_16_spring_junit" />
         <module name="spring_24_case_transfer" />
+        <module name="myMyBatisAnnotation" />
         <module name="springmvc_11_page" />
         <module name="spring_10_container" />
         <module name="spring_14_annotation_third_bean_manager" />
@@ -25,6 +26,8 @@
         <module name="springmvc_02_bean_load" />
         <module name="spring_17_aop_demo" />
         <module name="spring_09_datasource" />
+        <module name="AAA" />
+        <module name="AAB" />
         <module name="spring_23_case_handle_password" />
         <module name="spring_15_mybatis" />
         <module name="spring_25_case_transfer_log" />
@@ -52,6 +55,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="myDemo01" target="1.5" />
       <module name="spring_19_aop_pointcut (1)" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="db.properties" system-properties-mode="NEVER"></context:property-placeholder>
+
+    <!--管理DruidDataSource对象-->
+    <bean id="dataSource1" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://${dbip}:${dbport}/spring_db?useSSL=false"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+    <bean id = 'bookDaoImpl1' name="bd1 bookdao1" scope="singleton" class="dao.impl.bookDaoImpl" init-method="init1" destroy-method="destroy1" >
+        <constructor-arg name="bookName" value="红楼梦"></constructor-arg>
+        <constructor-arg name="author" value="曹雪芹"></constructor-arg>
+        <constructor-arg name="price" value="56.99"></constructor-arg>
+<!--        注意：构造器肯定先执行，而后又调用了下面的setbookName，所以最终的值是罗密欧与朱丽叶-->
+        <property name="bookName" value="罗密欧与朱丽叶"></property>
+    </bean>
+
+    <bean id = 'userDaoImpl2' class="dao.impl.userDaoImpl" >
+        <property name="userList">
+            <list>
+                <value>用户1</value>
+                <value>用户2</value>
+                <value>用户3</value>
+                <value>用户4</value>
+                <value>用户5</value>
+            </list>
+        </property>
+        <property name="userSet">
+            <set>
+                <value>用户1</value>
+                <value>用户2</value>
+                <value>用户3</value>
+                <value>用户4</value>
+                <value>用户5</value>
+            </set>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="用户1" value="用户1的value"/>
+                <entry key="用户2" value="用户2的value"/>
+                <entry key="用户3" value="用户3的value"/>
+                <entry key="用户4" value="用户4的value"/>
+                <entry key="用户5" value="用户5的value"/>
+            </map>
+        </property>
+        <property name="userProperties">
+            <props>
+                <prop key="用户1">用户1的prop</prop>
+                <prop key="用户2">用户2的prop</prop>
+                <prop key="用户3">用户3的prop</prop>
+                <prop key="用户4">用户4的prop</prop>
+                <prop key="用户5">用户5的prop</prop>
+            </props>
+        </property>
+        <constructor-arg name="userName" index="0" value="小明"/>
+        <constructor-arg name="userAge" index="1" value="16"/>
+    </bean>
+
+    <!--autowire属性：开启自动装配，通常使用按类型装配-->
+    <bean id = 'bookServiceImpl1' name = 'bk1' class="service.impl.bookServiceImpl"  autowire="byType">
+<!--        <constructor-arg name="bookDaoImpl" ref="bookDaoImpl1"></constructor-arg>-->
+<!--        <constructor-arg name="userDaoImpl" ref="userDaoImpl1"></constructor-arg>-->
+    </bean>
+
+</beans>
