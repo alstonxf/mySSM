@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/AAB" />
     <file type="web" url="file://$PROJECT_DIR$/myDemo/myDemo01" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc_01_quickstart" />
     <file type="web" url="file://$PROJECT_DIR$/springmvc_02_bean_load" />

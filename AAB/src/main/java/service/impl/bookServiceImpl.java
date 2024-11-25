@@ -38,7 +38,7 @@ public class bookServiceImpl implements bookService {
     }
 
     @Override
-    public void getUsersInfo() {
+    public List<user> getUsersInfo() {
 
         List<user> userList = userDaoImpl.getUserList();
         for (int i = 0; i < userList.size(); i++) {
@@ -51,6 +51,7 @@ public class bookServiceImpl implements bookService {
         userDaoImpl.getUserPros();
         // 故意抛出异常 用于测试AOP的AfterThrowing方法
 //        throw new RuntimeException("获取用户信息失败！");
+        return userList;
     }
 
 

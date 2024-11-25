@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--mybatis主配置文件：这个文件是必须的-->
+<configuration>
+    <!--spring区整合mybatis框架-->
+
+    <mappers>
+        <package name="dao"></package>
+    </mappers>
+</configuration>

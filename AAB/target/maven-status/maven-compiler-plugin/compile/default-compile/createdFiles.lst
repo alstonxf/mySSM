@@ -1,0 +1,3 @@
+configuration\SpringMvcConfiguration.class
+configuration\ServletContainersInitConfig.class
+controler\bookControler.class
