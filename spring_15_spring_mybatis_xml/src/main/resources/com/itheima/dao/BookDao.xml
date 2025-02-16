@@ -1,17 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="com.itheima.dao.BookDao">
 
-    <select id="save" resultType="Book">
-        SELECT * FROM ssm_db.tbl_book limit 1;
+    <insert id="save" parameterType="com.itheima.domain.Book">
+        INSERT INTO book (name, author, price) VALUES (#{name}, #{author}, #{price});
+    </insert>
+
+    <select id="findAll" resultType="com.itheima.domain.Book">
+        SELECT * FROM book;
     </select>
 
-
-    <select id="query">
-        SELECT * FROM ssm_db.tbl_book limit 1;
-    </select>
 </mapper>

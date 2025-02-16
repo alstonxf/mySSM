@@ -1,9 +1,9 @@
-package com.itheima.dao;
+package com.itheima.service;
 
 import com.itheima.domain.Book;
 import java.util.List;
 
-public interface BookDao {
+public interface BookService {
     void save(Book book);
     List<Book> findAll();
 }

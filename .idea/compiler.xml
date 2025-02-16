@@ -54,9 +54,5 @@
         <module name="springmvc_04_request_param" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="myDemo01" target="1.5" />
-      <module name="spring_19_aop_pointcut (1)" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

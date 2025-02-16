@@ -3,8 +3,18 @@ package com.itheima.domain;
 public class Book {
     private Integer id;
     private String name;
-    private String type;
-    private String description;
+    private String author;
+    private Double price;
+
+    public Book(Integer id, String name, String author) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+    }
+
+    public Book() {
+
+    }
 
     public Integer getId() {
         return id;
@@ -22,29 +32,19 @@ public class Book {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getDescription() {
-        return description;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
