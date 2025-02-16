@@ -14,6 +14,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 //添加参数proxyTargetClass = true
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 
-public class BookConfiguration {
+public class SpringConfiguration {
 
 }

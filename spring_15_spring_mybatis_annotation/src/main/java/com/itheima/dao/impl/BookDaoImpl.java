@@ -17,7 +17,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> save() {
-        System.out.println("book dao save ..." + this.toString());
+        System.out.println("book dao save ..." + this);
         return bookDao.save();
     }
 

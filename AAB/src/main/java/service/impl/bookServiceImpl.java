@@ -10,7 +10,7 @@ import dao.impl.bookDaoImpl;
 
 import java.util.List;
 
-@Service("bk1")
+@Service("A001MB01")
 public class bookServiceImpl implements bookService {
 
     @Autowired

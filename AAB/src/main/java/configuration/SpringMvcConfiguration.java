@@ -9,5 +9,4 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc //开启json数据类型自动转换
 public class SpringMvcConfiguration {
 
-
 }

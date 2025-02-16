@@ -29,7 +29,7 @@ public class AppSpringAnnotationMybatis {
         BookServiceImpl bookService = (BookServiceImpl) context.getBean("bookServiceImpl");
 
         // 调用保存方法
-        List<Map<String, Object>> resultMap = bookService.save();
+        List<Book> resultMap = bookService.save();
         //         打印书籍列表
         System.out.println(resultMap);
     }

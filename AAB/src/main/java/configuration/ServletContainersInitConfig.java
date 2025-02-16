@@ -1,6 +1,5 @@
 package configuration;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
@@ -24,7 +23,7 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
     protected WebApplicationContext createRootApplicationContext() {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         // 加载 Spring 的配置类
-        ctx.register(BookConfiguration.class);
+        ctx.register(SpringConfiguration.class);
         return ctx;
     }
 }

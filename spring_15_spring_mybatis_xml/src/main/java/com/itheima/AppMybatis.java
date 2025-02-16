@@ -1,6 +1,5 @@
 package com.itheima;
 
-
 import com.itheima.dao.BookDao;
 import com.itheima.domain.Book;
 import org.apache.ibatis.io.Resources;

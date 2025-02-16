@@ -1,4 +1,4 @@
-import configuration.BookConfiguration;
+import configuration.SpringConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.alibaba.druid.pool.DruidDataSource;
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class databaseTest {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext classPathXmlApplicationContext = new AnnotationConfigApplicationContext(BookConfiguration.class);
+        AnnotationConfigApplicationContext classPathXmlApplicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
         //注意：如果使用类型注入。必须要确保IOC容器中该类型对应的bean对象只能有一个。
         DruidDataSource dataSource = classPathXmlApplicationContext.getBean(com.alibaba.druid.pool.DruidDataSource.class);
 

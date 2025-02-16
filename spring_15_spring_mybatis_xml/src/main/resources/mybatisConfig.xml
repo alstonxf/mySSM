@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="myjdbc.properties"></properties>
+<!--    <properties resource="myjdbc.properties"></properties>-->
 
     <typeAliases>
         <package name="com.itheima.domain"/>
@@ -13,16 +13,17 @@
         <environment id="mysql1">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property name="drive" value="${myjdbc.driverClassName}"/>
-                <property name="url" value="{myjdcb.url}"/>
-                <property name="username" value="{myjdcb.username}"/>
-                <property name="password" value="{myjdcb.password}"/>
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mysql?useSSL=false"/>
+                <property name="username" value="myuser1"/>
+                <property name="password" value="ComplexPass123!"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <package name="com.itheima"/>
+<!--        <package name="com.itheima.dao"/>-->
+        <mapper resource="com/itheima/dao/BookDao.xml"/>
     </mappers>
 
 </configuration>

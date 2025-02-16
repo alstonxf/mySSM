@@ -1,13 +1,13 @@
-import configuration.BookConfiguration;
+import configuration.SpringConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.impl.bookServiceImpl;
 
 public class App {
     public static void main(String[] args) {
 //        bookServiceImpl bookService = new bookServiceImpl();
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BookConfiguration.class);//类路径下的XML配置文件
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);//类路径下的XML配置文件
         // 使用 Bean 的 id或name 获取 bookService 实例
-        bookServiceImpl bookService = (bookServiceImpl) context.getBean("bk1");
+        bookServiceImpl bookService = (bookServiceImpl) context.getBean("A001MB01");
 
         // 调用 bookService 方法
         bookService.save();

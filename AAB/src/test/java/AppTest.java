@@ -1,10 +1,8 @@
-import configuration.BookConfiguration;
+import configuration.SpringConfiguration;
 import dao.impl.userDaoImpl;
-import dao.user;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import service.impl.bookServiceImpl;
@@ -12,7 +10,7 @@ import service.impl.bookServiceImpl;
 @RunWith(SpringJUnit4ClassRunner.class)
 
 //相当于完成了容器的初始化  AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BookConfiguration.class);//类路径下的XML配置文件
-@ContextConfiguration(classes = {configuration.BookConfiguration.class})
+@ContextConfiguration(classes = {SpringConfiguration.class})
 //@ContextConfiguration(locations = {"...xml"})
 public class AppTest {
     @Autowired
