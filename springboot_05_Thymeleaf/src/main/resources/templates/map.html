@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div th:each="key : ${mymap.keySet()}">
+                <li th:text="${key}"></li> <!-- Accessing the key -->
+            </div>
+
+            <!-- To just display the values from the map -->
+            <div th:each="value : ${mymap.values()}">
+                <li th:text="${value}"></li> <!-- Displaying values -->
+            </div>
+
+            <!-- Displaying whole item -->
+            <div th:each="item : ${mymap}">
+                <li th:text="${item}"></li> <!-- Displaying entire item -->
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -5,54 +5,85 @@
       <directory url="file://$PROJECT_DIR$/spring_17_aop_demo/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_22_aop_advice_data" />
+        <module name="springboot_05_Thymeleaf" />
+        <module name="springboot_05_HelloWord" />
+        <module name="springmvc_10_exception" />
+        <module name="springboot_05_ValidatorDemo" />
+        <module name="springmvc_01_quickstart" />
+        <module name="spring_15_spring_mybatis_annotation" />
+        <module name="spring_17_aop_demo" />
+        <module name="spring_09_datasource" />
+        <module name="AAA" />
+        <module name="AAB" />
+        <module name="spring_23_case_handle_password" />
+        <module name="spring_01_quickstart" />
+        <module name="springboot_04_MultiYmlDemo" />
+        <module name="spring_20_aop_advice_type" />
+        <module name="springmvc_03_request_mapping" />
+        <module name="spring_18_aop_quickstart" />
+        <module name="springmvc_07_rest_case" />
+        <module name="spring_02_base_config" />
+        <module name="springmvc_12_interceptor" />
+        <module name="spring_19_aop_pointcut" />
+        <module name="spring_04_bean_lifecycle" />
+        <module name="springboot_04_application" />
+        <module name="springboot_04_PropertiesDemo" />
         <module name="spring_07_di_autoware" />
         <module name="spring_13_annotation_di" />
         <module name="spring_16_spring_junit" />
         <module name="spring_24_case_transfer" />
         <module name="myMyBatisAnnotation" />
         <module name="springmvc_11_page" />
+        <module name="springboot_05_MVCDemo" />
         <module name="spring_10_container" />
         <module name="spring_14_annotation_third_bean_manager" />
-        <module name="springmvc_10_exception" />
-        <module name="springmvc_01_quickstart" />
         <module name="springmvc_06_rest" />
         <module name="spring_15_spring_mybatis_xml" />
-        <module name="spring_15_spring_mybatis_annotation" />
         <module name="springmvc_02_bean_load" />
-        <module name="spring_17_aop_demo" />
-        <module name="spring_09_datasource" />
-        <module name="AAA" />
-        <module name="AAB" />
-        <module name="spring_23_case_handle_password" />
+        <module name="springboot_04_HelloWorldBoot" />
         <module name="spring_15_mybatis" />
         <module name="spring_25_case_transfer_log" />
         <module name="spring_11_annotation_bean" />
-        <module name="spring_01_quickstart" />
         <module name="spring_05_di_set" />
         <module name="spring_08_di_collection" />
         <module name="springmvc_09_result" />
         <module name="spring_12_annotation_bean_manager" />
-        <module name="spring_20_aop_advice_type" />
-        <module name="springmvc_03_request_mapping" />
         <module name="springmvc_05_response" />
-        <module name="spring_18_aop_quickstart" />
         <module name="spring_06_di_constructor" />
-        <module name="springmvc_07_rest_case" />
-        <module name="spring_02_base_config" />
-        <module name="springmvc_12_interceptor" />
         <module name="springmvc_08_ssm" />
-        <module name="spring_19_aop_pointcut" />
         <module name="spring_21_case_interface_run_speed" />
         <module name="myMyBatis" />
         <module name="spring_03_bean_instance" />
-        <module name="spring_04_bean_lifecycle" />
         <module name="springmvc_04_request_param" />
       </profile>
+      <profile name="Annotation profile for springboot_03_hello_world" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../../env/apache-maven-3.9.9/myLocalRepository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="springboot_03_introduction" />
+      </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot_03_introduction" options="-parameters" />
+      <module name="springboot_04_HelloWorldBoot" options="-parameters" />
+      <module name="springboot_04_MultiYmlDemo" options="-parameters" />
+      <module name="springboot_04_PropertiesDemo" options="-parameters" />
+      <module name="springboot_04_application" options="-parameters" />
+      <module name="springboot_05_HelloWord" options="-parameters" />
+      <module name="springboot_05_MVCDemo" options="-parameters" />
+      <module name="springboot_05_Thymeleaf" options="-parameters" />
+      <module name="springboot_05_ValidatorDemo" options="-parameters" />
+    </option>
   </component>
 </project>

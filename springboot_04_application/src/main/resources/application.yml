@@ -1,0 +1,5 @@
+#主配置文件
+spring:
+  profiles:
+    active: prod10086
+#    指定当前活动的配置文件为prod

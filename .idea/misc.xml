@@ -64,10 +64,19 @@
         <option value="$PROJECT_DIR$/AAB/pom.xml" />
         <option value="$PROJECT_DIR$/AAA/pom.xml" />
         <option value="$PROJECT_DIR$/myMyBatisAnnotation/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_03_introduction/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_application/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_HelloWorldBoot/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_MultiYmlDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_04_PropertiesDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_HelloWord/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_MVCDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_Thymeleaf/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_05_ValidatorDemo/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/spring_03_bean_instance/target" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/springboot_03_introduction/target" />
   </component>
 </project>

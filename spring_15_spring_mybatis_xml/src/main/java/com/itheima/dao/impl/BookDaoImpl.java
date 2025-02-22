@@ -20,15 +20,12 @@ public class BookDaoImpl implements BookDao {
        SqlSession session = sqlSessionFactory.openSession();
         session.insert("com.itheima.dao.BookDao.save", book);
         session.commit();
-
     }
 
     @Override
     public List<Book> findAll() {
         SqlSession session = sqlSessionFactory.openSession();
         return session.selectList("com.itheima.dao.BookDao.findAll");
-
     }
-
 
 }
