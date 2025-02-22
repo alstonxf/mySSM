@@ -3,15 +3,34 @@ package com.itheima.controller;
 import com.itheima.domain.User;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Controller
 public class UserController {
+
+    @RequestMapping("/")
+    @ResponseBody
+    public String toIndexPage(){
+        // 获取当前时间
+        LocalDateTime currentTime = LocalDateTime.now();
+        // 定义带有毫秒的格式
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+        // 格式化当前时间
+        String formattedTime = currentTime.format(formatter);
+        // 输出格式化后的时间
+        System.out.println("当前时间（带毫秒）: " + formattedTime);
+        return "WELCOME!!!  " +formattedTime;
+    }
+
 
     //响应页面/跳转页面
     //返回值为String类型，设置返回值为页面名称，即可实现页面跳转
@@ -62,4 +81,5 @@ public class UserController {
 
         return userList;
     }
+
 }
